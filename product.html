@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ember Runner Low — Shopfront | Free Product Page Template</title>
+  <meta name="description" content="Product detail page from the free Shopfront Bootstrap 5 e-commerce template — image gallery, colour &amp; size selectors, quantity stepper and detail / review tabs, all in vanilla JS.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- announcement -->
+  <div class="announce" id="announce">
+    <div class="shell">
+      <span>Free express shipping on orders over <strong>$75</strong> &nbsp;·&nbsp; 30-day easy returns</span>
+      <button class="announce-close" id="announceClose" aria-label="Dismiss announcement">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- header -->
+  <header class="site-header" id="header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="index.html" aria-label="Shopfront home">
+        <span class="mark" aria-hidden="true">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l1.4-3.2A2 2 0 0 1 7.2 3.6h9.6a2 2 0 0 1 1.8 1.2L20 8M4 8h16v10.4A1.6 1.6 0 0 1 18.4 20H5.6A1.6 1.6 0 0 1 4 18.4V8zM9 12a3 3 0 0 0 6 0"/></svg>
+        </span>
+        Shopfront
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html#collection">New In</a>
+        <a href="index.html#categories">Shop</a>
+        <a href="product.html">Sneakers</a>
+        <a href="index.html#sale">Sale</a>
+        <a href="index.html#reviews">Reviews</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Search products">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="My account">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+        </button>
+        <button class="icon-btn" id="cartBtn" aria-label="Shopping cart, 2 items">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2.2l2.2 12.4A1.6 1.6 0 0 0 8 16.7h9.4a1.6 1.6 0 0 0 1.6-1.3L20.6 7H6"/></svg>
+          <span class="cart-count" id="cartCount" aria-hidden="true">2</span>
+        </button>
+        <button class="icon-btn nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer" aria-label="Mobile menu" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="brand">Shopfront</span>
+      <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav aria-label="Mobile">
+      <a href="index.html#collection">New In</a>
+      <a href="index.html#categories">Shop</a>
+      <a href="product.html">Sneakers</a>
+      <a href="index.html#sale">Sale</a>
+      <a href="index.html#reviews">Reviews</a>
+    </nav>
+    <div class="drawer-foot">
+      <a href="index.html#collection" class="btn-e btn-cobalt btn-block">Shop the drop</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <div class="shell">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">/</span>
+        <a href="index.html#categories">Sneakers</a>
+        <span class="sep">/</span>
+        <span class="cur">Ember Runner Low</span>
+      </nav>
+    </div>
+
+    <!-- product detail -->
+    <section class="shell pd-grid" aria-labelledby="pd-title">
+      <!-- gallery -->
+      <div class="pd-gallery">
+        <div class="pd-main">
+          <img src="img/pd1.jpg" alt="Ember Runner Low sneaker, three-quarter view" id="pdMain" width="800" height="800">
+        </div>
+        <div class="pd-thumbs" role="group" aria-label="Product images">
+          <button class="pd-thumb active" data-full="img/pd1.jpg" aria-label="View three-quarter view">
+            <img src="img/pd1.jpg" alt="Ember Runner Low, three-quarter view" width="200" height="200">
+          </button>
+          <button class="pd-thumb" data-full="img/pd2.jpg" aria-label="View sole detail">
+            <img src="img/pd2.jpg" alt="Ember Runner Low, outsole detail" width="200" height="200">
+          </button>
+          <button class="pd-thumb" data-full="img/pd3.jpg" aria-label="View side profile">
+            <img src="img/pd3.jpg" alt="Ember Runner Low, side profile" width="200" height="200">
+          </button>
+          <button class="pd-thumb" data-full="img/pd4.jpg" aria-label="View lacing detail">
+            <img src="img/pd4.jpg" alt="Ember Runner Low, lacing detail" width="200" height="200">
+          </button>
+        </div>
+      </div>
+
+      <!-- info -->
+      <div class="pd-info">
+        <span class="pd-cat">Sneakers · Everyday</span>
+        <h1 id="pd-title">Ember Runner Low</h1>
+        <div class="pd-rate">
+          <span class="stars" aria-label="Rated 4.9 out of 5"></span>
+          <span>4.9 · 312 reviews · <a href="#reviews-tab-btn">Read reviews</a></span>
+        </div>
+        <div class="pd-price">
+          <span class="now">$128</span>
+          <span class="was">$160</span>
+          <span class="off">20% off</span>
+        </div>
+        <p class="pd-desc">A cushioned everyday low-top built on our recycled-foam midsole, wrapped in soft full-grain leather that only looks better with wear. Breathable, lightweight, and true to size.</p>
+
+        <!-- colour -->
+        <div class="opt-group">
+          <div class="opt-label">
+            <span class="t">Colour</span>
+            <span class="picked" id="colourPicked">Bone White</span>
+          </div>
+          <div class="swatches" role="group" aria-label="Choose a colour">
+            <button class="swatch active" style="background:#efe9dd" data-color="Bone White" aria-label="Bone White" aria-pressed="true"></button>
+            <button class="swatch" style="background:#17181d" data-color="Ink Black" aria-label="Ink Black" aria-pressed="false"></button>
+            <button class="swatch" style="background:#2743e6" data-color="Cobalt" aria-label="Cobalt" aria-pressed="false"></button>
+            <button class="swatch" style="background:#ff5636" data-color="Ember Orange" aria-label="Ember Orange" aria-pressed="false"></button>
+          </div>
+        </div>
+
+        <!-- size -->
+        <div class="opt-group">
+          <div class="opt-label">
+            <span class="t">Size (US)</span>
+            <a href="#" class="picked" style="color:var(--cobalt)">Size guide</a>
+          </div>
+          <div class="sizes" role="group" aria-label="Choose a size">
+            <button class="size-btn" data-size="7">7</button>
+            <button class="size-btn" data-size="8">8</button>
+            <button class="size-btn active" data-size="9" aria-pressed="true">9</button>
+            <button class="size-btn" data-size="10">10</button>
+            <button class="size-btn" data-size="11">11</button>
+            <button class="size-btn" data-size="12" disabled aria-disabled="true">12</button>
+          </div>
+        </div>
+
+        <!-- buy -->
+        <div class="buy-row">
+          <div class="stepper" role="group" aria-label="Quantity">
+            <button id="qtyMinus" aria-label="Decrease quantity">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14"/></svg>
+            </button>
+            <span class="qty" id="qtyVal" aria-live="polite">1</span>
+            <button id="qtyPlus" aria-label="Increase quantity">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+          </div>
+          <button class="btn-e btn-cobalt" id="pdAdd" data-add="Ember Runner Low">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2.2l2.2 12.4A1.6 1.6 0 0 0 8 16.7h9.4a1.6 1.6 0 0 0 1.6-1.3L20.6 7H6"/></svg>
+            Add to cart
+          </button>
+          <button class="icon-btn" id="pdWish" aria-label="Save to wishlist" style="border:1.5px solid var(--line);border-radius:100px;width:54px">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.2-9C1.3 8 2.6 5 5.6 4.6c2-.3 3.4.9 4.4 2.4 1-1.5 2.4-2.7 4.4-2.4 3 .4 4.3 3.4 2.8 6.4C19 15.5 12 20 12 20z"/></svg>
+          </button>
+        </div>
+
+        <div class="pd-meta">
+          <div class="row">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v11H1zM14 7h4l3 3v4h-7z"/><circle cx="6" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>
+            <span><b>Free express shipping</b> &mdash; arrives in 2&ndash;3 business days</span>
+          </div>
+          <div class="row">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+            <span><b>Free 30-day returns</b> &mdash; no questions asked</span>
+          </div>
+          <div class="row">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span><b>In stock</b> &mdash; only 6 left in this size</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- tabs -->
+    <section class="shell section-tight pd-tabs" aria-label="Product details">
+      <div class="tab-nav" role="tablist">
+        <button class="active" role="tab" aria-selected="true" data-tab="details" id="details-tab-btn">Details</button>
+        <button role="tab" aria-selected="false" data-tab="specs">Specs &amp; care</button>
+        <button role="tab" aria-selected="false" data-tab="reviews" id="reviews-tab-btn">Reviews (312)</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="details" role="tabpanel">
+        <h3>Made to be worn every day</h3>
+        <div class="two-col">
+          <p>The Ember Runner Low is the shoe we reach for most. It starts with a recycled-foam midsole that stays springy from the morning commute to the evening walk, tuned over eighteen prototypes to sit right between cushioned and grounded.</p>
+          <p>The upper is full-grain leather from a Leather Working Group&ndash;certified tannery, backed with a breathable mesh lining so your feet stay cool. A moulded heel counter locks you in without breaking in, and the rubber outsole is siped for grip on wet pavement.</p>
+          <p>We kept the silhouette clean on purpose &mdash; it reads just as easily with denim as it does with tailored trousers. Weighs 268g per shoe in a US 9, so you forget you&rsquo;re wearing them.</p>
+        </div>
+      </div>
+
+      <div class="tab-panel" data-panel="specs" role="tabpanel">
+        <h3>The details</h3>
+        <ul class="spec-list">
+          <li><span>Upper</span><span>Full-grain leather</span></li>
+          <li><span>Lining</span><span>Recycled mesh</span></li>
+          <li><span>Midsole</span><span>Recycled EVA foam</span></li>
+          <li><span>Outsole</span><span>Siped rubber</span></li>
+          <li><span>Weight (US 9)</span><span>268 g</span></li>
+          <li><span>Drop</span><span>8 mm</span></li>
+          <li><span>Care</span><span>Wipe clean, air dry</span></li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" data-panel="reviews" role="tabpanel">
+        <div class="rev-summary">
+          <div>
+            <div class="rev-big">4.9</div>
+            <span class="stars" aria-label="Rated 4.9 out of 5"></span>
+          </div>
+          <div>
+            <p style="margin:0"><b>312 verified reviews</b></p>
+            <p style="margin:0;color:var(--ink-soft)">96% of buyers recommend this product. True-to-size rated 4.8/5.</p>
+          </div>
+        </div>
+        <div class="rev-item">
+          <span class="stars" aria-label="Rated 5 out of 5"></span>
+          <div class="head"><b>Maya R.</b> <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Verified buyer</span> <span class="when">2 weeks ago</span></div>
+          <p>&ldquo;First online sneakers that actually fit true to size. The foam is springy without feeling squishy &mdash; I wore them straight out of the box on a 6-mile day with zero blisters.&rdquo;</p>
+        </div>
+        <div class="rev-item">
+          <span class="stars" aria-label="Rated 5 out of 5"></span>
+          <div class="head"><b>Theo B.</b> <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Verified buyer</span> <span class="when">1 month ago</span></div>
+          <p>&ldquo;Bought the Bone White and they go with everything. Leather is genuinely nice quality for the price. Only wish they made a mid-top version.&rdquo;</p>
+        </div>
+        <div class="rev-item">
+          <span class="stars" aria-label="Rated 4 out of 5"></span>
+          <div class="head"><b>Priya N.</b> <span class="verified"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Verified buyer</span> <span class="when">1 month ago</span></div>
+          <p>&ldquo;Comfortable and light. I&rsquo;m between sizes and sized down half &mdash; fit is perfect. Took off a star only because the laces are a touch long.&rdquo;</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- related -->
+    <section class="section related" aria-labelledby="rel-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">Complete the look</span>
+          <h2 id="rel-title">You might also like</h2>
+        </div>
+        <div class="product-grid">
+          <article class="card-p">
+            <div class="card-p-media">
+              <span class="tag new">New</span>
+              <a href="product.html"><img src="img/p2.jpg" alt="Trailhead GTX trail running sneaker" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Sneakers</span>
+              <h3><a href="product.html">Trailhead GTX</a></h3>
+              <div class="card-p-rate"><span class="stars" aria-hidden="true"></span> 4.8 <span>(96)</span></div>
+              <div class="card-p-foot">
+                <span class="price">$145</span>
+                <button class="add-btn" data-add="Trailhead GTX" aria-label="Add Trailhead GTX to cart">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card-p">
+            <div class="card-p-media">
+              <a href="product.html"><img src="img/p8.jpg" alt="Prospect corduroy cap in rust" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Apparel</span>
+              <h3><a href="product.html">Prospect Corduroy Cap</a></h3>
+              <div class="card-p-rate"><span class="stars" aria-hidden="true"></span> 4.7 <span>(140)</span></div>
+              <div class="card-p-foot">
+                <span class="price">$38</span>
+                <button class="add-btn" data-add="Prospect Corduroy Cap" aria-label="Add Prospect Corduroy Cap to cart">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card-p">
+            <div class="card-p-media">
+              <span class="tag new">New</span>
+              <a href="product.html"><img src="img/p7.jpg" alt="Basecamp 22 litre backpack" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Bags</span>
+              <h3><a href="product.html">Basecamp 22L Backpack</a></h3>
+              <div class="card-p-rate"><span class="stars" aria-hidden="true"></span> 4.8 <span>(204)</span></div>
+              <div class="card-p-foot">
+                <span class="price">$96</span>
+                <button class="add-btn" data-add="Basecamp 22L Backpack" aria-label="Add Basecamp 22L Backpack to cart">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card-p">
+            <div class="card-p-media">
+              <span class="tag sale">Save 20%</span>
+              <a href="product.html"><img src="img/p6.jpg" alt="Vantage washed denim jacket" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Apparel</span>
+              <h3><a href="product.html">Vantage Denim Jacket</a></h3>
+              <div class="card-p-rate"><span class="stars" aria-hidden="true"></span> 4.6 <span>(88)</span></div>
+              <div class="card-p-foot">
+                <span class="price on-sale">$118 <span class="was">$148</span></span>
+                <button class="add-btn" data-add="Vantage Denim Jacket" aria-label="Add Vantage Denim Jacket to cart">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <span class="mark" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l1.4-3.2A2 2 0 0 1 7.2 3.6h9.6a2 2 0 0 1 1.8 1.2L20 8M4 8h16v10.4A1.6 1.6 0 0 1 18.4 20H5.6A1.6 1.6 0 0 1 4 18.4V8zM9 12a3 3 0 0 0 6 0"/></svg>
+            </span>
+            Shopfront
+          </a>
+          <p>A modern storefront for sneakers, bags and apparel &mdash; curated by real buyers, shipped fast, backed by an honest return policy.</p>
+          <div class="pay-row" aria-label="Accepted payment methods">
+            <span class="pay-chip">VISA</span>
+            <span class="pay-chip">MC</span>
+            <span class="pay-chip">AMEX</span>
+            <span class="pay-chip">PAYPAL</span>
+            <span class="pay-chip">KLARNA</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="index.html#collection">New arrivals</a></li>
+            <li><a href="product.html">Sneakers</a></li>
+            <li><a href="index.html#categories">Bags &amp; carry</a></li>
+            <li><a href="index.html#categories">Apparel</a></li>
+            <li><a href="index.html#sale">Sale</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">Shipping &amp; delivery</a></li>
+            <li><a href="#">Returns &amp; refunds</a></li>
+            <li><a href="#">Size guide</a></li>
+            <li><a href="#">Track my order</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">Our story</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Store locator</a></li>
+            <li><a href="#">Gift cards</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Shopfront. Free template by <a href="https://uicookies.com" rel="noopener">uiCookies</a>.</span>
+        <div class="socials">
+          <a href="#" aria-label="Shopfront on Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Shopfront on X">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3l-6.6 7.6L21.8 21h-5.9l-4.6-6-5.3 6H3l7-8L2.6 3h6l4.2 5.5L17.5 3zm-1 16h1.6L7.6 4.7H5.9L16.5 19z"/></svg>
+          </a>
+          <a href="#" aria-label="Shopfront on TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.1 1.5 3.7 3.6 4v2.6c-1.3 0-2.5-.4-3.6-1v5.9a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v2.7a3 3 0 1 0 2.1 2.9V3H16z"/></svg>
+          </a>
+          <a href="#" aria-label="Shopfront on Pinterest">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.1-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.6 2.2-.9 3.4-.2 1 .5 1.8 1.5 1.8 1.8 0 3-2.3 3-5 0-2.1-1.4-3.6-3.9-3.6a4.5 4.5 0 0 0-4.7 4.5c0 .9.3 1.5.7 2 .2.2.2.3.1.5l-.2.9c-.1.3-.3.4-.6.2-1.2-.5-1.7-1.9-1.7-3.4 0-2.5 2.1-5.6 6.4-5.6 3.4 0 5.7 2.5 5.7 5.2 0 3.5-2 6.2-4.9 6.2-1 0-1.9-.5-2.2-1.1l-.6 2.4c-.2.8-.7 1.7-1.1 2.4A10 10 0 1 0 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
